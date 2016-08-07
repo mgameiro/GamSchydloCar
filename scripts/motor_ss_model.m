@@ -1,6 +1,7 @@
 %% Constants
 
 g  = 9.8;
+
 cw = 0.002; % Wheel friction
 cd = 0.18;  % Air drag
 
@@ -11,17 +12,21 @@ wm = 2*0.128; % Motor weight
 wa = 0.025;   % Arduino weight
 wb = 6*0.030; % 6 AA Battery's weight
 
-w = wc + wm + wa + wb;  % Total weight
+w = (wc + wm + wa + wb);  % Total weight
  
-% Motor curve coeficients
+% Motor parameters
 
-c1 = 253.0727; 
-c2 = 4.4660e+05;
+torque_stall = 210 * (10^-3); 
+w_no_load    = 80  * (2*pi/60);
+u_nominal    = 4.5;
+
+c1 = w_no_load/u_nominal;
+c2 = (c1*u_nominal)/torque_stall;
 
 % Simulation parameters
 
-u_start = 5.5;
-u_end   = 6;
+u_start = 4;
+u_end   = 4.5;
 u_step  = 0.1;
 
 teta = 0;
@@ -40,12 +45,14 @@ Fg    = -w*g*sin(teta);
 F(1) = (Fd + Fa + Fg)/2 + t*r;  % Force equilibrium, a = 0
 F(2) = -v/r + c1*u - c2*t;      % Motor equation in steady state
 
+%% Solve equations
+
 f = solve(F(1),F(2), v, t);  % Solve equations as a function of the voltage
 
 fv = f.v(1);                 % Velocity as function of voltage
 ft = f.t(1);                 % Torque as function of voltage
 
-%% Simulation 
+%% Plot results
 
 u_range = u_start:u_step:u_end;
 v_res   = zeros(length(u_range), 1);
