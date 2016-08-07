@@ -1,4 +1,12 @@
-%% Constants
+%% Simulation parameters
+
+u_start = 4;
+u_end   = 4.5;
+u_step  = 0.1;
+
+teta = 0;
+
+%% Model parameters
 
 g  = 9.8;
 
@@ -23,25 +31,18 @@ u_nominal    = 4.5;
 c1 = w_no_load/u_nominal;
 c2 = (c1*u_nominal)/torque_stall;
 
-% Simulation parameters
-
-u_start = 4;
-u_end   = 4.5;
-u_step  = 0.1;
-
-teta = 0;
-
 %% Symbolic variables
 
 syms v t u % Velocity, torque, voltage
 
 %% Forces
 
-Fd(v) = -cd*v^2;   % Drag force
-Fa    = -cw*(w*g); % wheel friction force
-Fg    = -w*g*sin(teta);
+Fd = -cd*v^2;   % Drag force
+Fa = -cw*(w*g); % wheel friction force
+Fg = -w*g*sin(teta);
 
 %% Equations
+
 F(1) = (Fd + Fa + Fg)/2 + t*r;  % Force equilibrium, a = 0
 F(2) = -v/r + c1*u - c2*t;      % Motor equation in steady state
 
