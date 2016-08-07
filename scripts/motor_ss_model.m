@@ -4,14 +4,14 @@ g  = 9.8;
 cw = 0.002; % Wheel friction
 cd = 0.18;  % Air drag
 
-r = 0.004; % Wheel radius
+r = 4 * 10^-2; % Wheel radius
 
 wc = 0.025;   % Chasi weight
 wm = 2*0.128; % Motor weight
 wa = 0.025;   % Arduino weight
 wb = 6*0.030; % 6 AA Battery's weight
 
-w = 0.1*(wc + wm + wa + wb);  % Total weight
+w = wc + wm + wa + wb;  % Total weight
  
 % Motor curve coeficients
 
