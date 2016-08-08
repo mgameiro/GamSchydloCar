@@ -1,4 +1,4 @@
-function [ v_sim, T_sim, I_sim ] = MotorSSsim(u,u_nominal,w_no_load,torque_stall)
+function [ v_sim, T_sim, I_sim ] = MotorSSsim(u, Ra, kf, kt)
 %% Simulation parameters
 
 u_start = u(1);
@@ -26,13 +26,8 @@ w = (wc + wm + wa + wb);  % Total weight
  
 %%  Motor parameters
 
-c1 = w_no_load/u_nominal;          % Parameters of torque curve 
-c2 = (c1*u_nominal)/torque_stall;
-
-kt = 1/c1;
-Ra = c2*kt^2;
-
-fprintf('Kt: %f \nRa: %f\n\n', kt, Ra);
+c1 = 1/kf;          % Parameters of torque curve 
+c2 = Ra/kf^2;
 
 %% Symbolic variables
 
