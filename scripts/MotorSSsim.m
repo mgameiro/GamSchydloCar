@@ -56,7 +56,7 @@ f = solve(F(1),F(2),v,T);  % Solve equations as a function of the voltage
 fv = f.v(1);               % Velocity as function of voltage
 ft = f.T(1);               % Torque as function of voltage
 
-%% Plot results
+%% Compute return values
 
 u_range = u_start:u_step:u_end;
 
@@ -69,7 +69,7 @@ for u_value = u_range
     v_value = double(subs(fv, u, u_value)); % Substitute the voltage in the function
     t_value = double(subs(ft, u, u_value));
     
-    if ( v_value < 0); v_value = 0; t_value = 0; end;    % Negative velocities are not covered in this model 
+    if ( v_value < 0); v_value = 0; t_value = 0; end; % Negative velocities are not covered in this model 
     
     v_sim(index) = v_value;
     T_sim(index) = t_value;
