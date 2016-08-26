@@ -1,3 +1,10 @@
+double calculatePower(double Ua, double Ia){
+  // Calculate the power consumed
+  double Pin;
+  Pin = Ua*Ia;
+  return Pin;
+}
+
 double calculateSpeed(double Ua, double Ia){
   // Calculate the car speed from voltage and current
   double w;
@@ -5,6 +12,13 @@ double calculateSpeed(double Ua, double Ia){
   w = (Ua-Ra*Ia)/Kf;
   v = w*R;
   return v;
+}
+
+double readinputPinVoltage(int analogPin){
+  // read the value of voltage at input pin (0-5V)
+  double U;
+  U = analogRead(analogPin);
+  return U*(5/1024);
 }
 
 double readOutputVoltage(){
@@ -26,5 +40,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  double Ua, Ia;
+  double v;
 
 }
