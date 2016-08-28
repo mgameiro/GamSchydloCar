@@ -1,3 +1,7 @@
+#include "Arduino.h"
+#include "MotorConstants.h"
+#include "AnalogInput.h"
+
 double calculatePower(double Ua, double Ia){
   // Calculate the power consumed
   double Pin;
@@ -7,18 +11,11 @@ double calculatePower(double Ua, double Ia){
 
 double calculateSpeed(double Ua, double Ia){
   // Calculate the car speed from voltage and current
-  double w;
+  double w,v;
   
   w = (Ua-Ra*Ia)/Kf;
   v = w*R;
   return v;
-}
-
-double readinputPinVoltage(int analogPin){
-  // read the value of voltage at input pin (0-5V)
-  double U;
-  U = analogRead(analogPin);
-  return U*(5/1024);
 }
 
 double readOutputVoltage(){
@@ -29,18 +26,10 @@ double readOutputVoltage(){
 void setup() {
   // put your setup code here, to run once:
 
-  // DC Motor constants
-  const double Ra = 7.5;
-  const double Kf = 1.1234;
-  const double Kt = 0.8827;
-  // Car physical constants
-  const double M = 0.5;
-  const double R = 0.003;
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  double Ua, Ia;
-  double v;
+  
 
 }
