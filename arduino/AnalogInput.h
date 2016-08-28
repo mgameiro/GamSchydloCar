@@ -11,9 +11,10 @@ class AnalogInput{
 
 public:
   AnalogInput();
+  double readinputPinVoltage(int analogPin);
 
 private:
-  double readinputPinVoltage(int analogPin);
+  
 
 };
 
