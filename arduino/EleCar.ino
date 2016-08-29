@@ -1,6 +1,5 @@
 #include "Arduino.h"
-#include "MotorConstants.h"
-#include "AnalogInput.h"
+#include "Battery.h"
 
 void setup() {
   // put your setup code here, to run once:
