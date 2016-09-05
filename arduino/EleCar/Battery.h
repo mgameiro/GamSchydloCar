@@ -4,7 +4,8 @@
 #include "Arduino.h"
 #include "AnalogInput.h"
 
-#define BATTERYMINCHARGED 4
+#define BATTERYVOLTAGE 5
+#define BATTERYMINCHARGED 0.8*BATTERYVOLTAGE
 
 class Battery{
 
