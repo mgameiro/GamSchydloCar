@@ -2,7 +2,6 @@
 #define MOTOR_H_INCLUDED
 
 #include "Arduino.h"
-#include "AnalogInput.h"
 
 // DC Motor constants
 #define Ra 7.5
