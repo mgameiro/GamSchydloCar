@@ -3,14 +3,15 @@
 
 #include "Arduino.h"
 
-#define BATTERYVOLTAGE 5
-#define BATTERYMINCHARGED 0.8*BATTERYVOLTAGE
+#define BATTERYVOLTAGE 5.0
+#define BATTERYMINCHARGED 0.8
 #define PINBATTERY 0
 
 class Battery{
   
   public:
     Battery();
+    double getBatteryState();
     bool isBatteryCharged();
     ~Battery();
 

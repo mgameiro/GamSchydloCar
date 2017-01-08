@@ -4,12 +4,16 @@ Battery::Battery(){
   
 }
 
+double Battery::getBatteryState(){
+  double ub;
+  ub = this->getBatteryVoltage();
+  return ub/BATTERYVOLTAGE;
+}
+
 bool Battery::isBatteryCharged(){
   // Verify battery state (charged or not)
   bool charged;
-  double ub;
-  ub = this->getBatteryVoltage();
-  if(ub >= BATTERYMINCHARGED){
+  if(getBatteryState() >= BATTERYMINCHARGED*BATTERYVOLTAGE){
     charged = true;
   } else {
     charged = false;
