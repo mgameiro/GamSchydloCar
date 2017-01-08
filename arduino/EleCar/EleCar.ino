@@ -1,9 +1,11 @@
 #include "Arduino.h"
-#include "Battery.h"
+#include "Controller.h"
+
+Controller *controller;
 
 void setup() {
   // put your setup code here, to run once:
-
+  controller = new Controller();
 }
 
 void loop() {

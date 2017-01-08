@@ -13,14 +13,12 @@
 
 class Motor{
 
-  AnalogInput ai;
-
-public:
-  Motor();
-  
-private:
-  double getMotorLeftVoltage();
-  double getMotorRightVoltage();
+  public:
+    Motor();
+    ~Motor();
+    
+  private:
+    
 };
 
 

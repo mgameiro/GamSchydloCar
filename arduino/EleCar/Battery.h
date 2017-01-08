@@ -5,14 +5,17 @@
 
 #define BATTERYVOLTAGE 5
 #define BATTERYMINCHARGED 0.8*BATTERYVOLTAGE
+#define PINBATTERY 0
 
 class Battery{
-
-  AnalogInput ai;
   
-public:
-  Battery();
-  bool isBatteryCharged();
+  public:
+    Battery();
+    bool isBatteryCharged();
+    ~Battery();
+
+  private:
+    double getBatteryVoltage();
   
 };
 
