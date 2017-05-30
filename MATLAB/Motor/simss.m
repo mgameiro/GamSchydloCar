@@ -2,13 +2,15 @@
 Ua = 0:0.1:5;
 Ia = zeros(1, length(Ua));
 Nr = zeros(1, length(Ua));
+Pi = zeros(1, length(Ua));
+Po = zeros(1, length(Ua));
 rend = zeros(1, length(Ua));
 %https://en.wikipedia.org/wiki/Rolling_resistance
 Cf = 0.0025;
 Mass = 0.05;
 
 for k = 1:length(Ua)
-    [Ia(k), Nr(k), rend(k)] = modelss(Ua(k), Cf*Mass, false);
+    [Ia(k), Nr(k), Pi(k), Po(k), rend(k)] = modelss(Ua(k), Cf*Mass, false);
 end
 
 %% Graphs plots
@@ -26,7 +28,10 @@ ylabel('Nr [rpm]');
 
 figure(2);
 subplot(2,1,1);
-
+plot(Ua, Pi);
+title('Input Power');
+xlabel('Ua [V]');
+ylabel('Pi [W]');
 subplot(2,1,2);
 plot(Ua, rend);
 title('Efficiency');

@@ -1,4 +1,4 @@
-function [Ia, Nr, rend] = modelss(Ua, Tc, PRINT)
+function [Ia, Nr, Pi, Po, rend] = modelss(Ua, Tc, PRINT)
 
 
 %% Calculate main motor's constants
