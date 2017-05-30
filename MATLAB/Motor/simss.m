@@ -3,9 +3,12 @@ Ua = 0:0.1:5;
 Ia = zeros(1, length(Ua));
 Nr = zeros(1, length(Ua));
 rend = zeros(1, length(Ua));
+%https://en.wikipedia.org/wiki/Rolling_resistance
+Cf = 0.0025;
+Mass = 0.05;
 
 for k = 1:length(Ua)
-    [Ia(k), Nr(k), rend(k)] = modelss(Ua(k), 0.5*(0.1540+0.0294), false);
+    [Ia(k), Nr(k), rend(k)] = modelss(Ua(k), Cf*Mass, false);
 end
 
 %% Graphs plots
