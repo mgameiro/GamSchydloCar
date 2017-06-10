@@ -4,7 +4,7 @@ function [Ia, Nr, Pi, Po, rend] = modelss(Ua, Tc, PRINT)
 %% Calculate main motor's constants
 k = 1.43;
 B = 0.000273;
-Ra = 1e3;
+Ra = 6;
 
 
 %% Calculate current and speed in steady-state

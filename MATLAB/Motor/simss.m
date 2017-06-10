@@ -29,6 +29,8 @@ ylabel('Nr [rpm]');
 figure(2);
 subplot(2,1,1);
 plot(Ua, Pi);
+hold on;
+plot(Ua, Po);
 title('Input Power');
 xlabel('Ua [V]');
 ylabel('Pi [W]');
