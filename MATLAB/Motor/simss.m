@@ -9,10 +9,10 @@ rend = zeros(1, length(Ua));
 %https://en.wikipedia.org/wiki/Rolling_resistance
 Cf = 0.0025;
 Mass = 0.5;
-Tc = 0;
+Tc = 0.5*sin(5*pi/180);
 
 for k = 1:length(Ua)
-    [Ia(k), Nr(k), Pi(k), Po(k), rend(k)] = modelss(Ua(k), Cf*Mass, false);
+    [Ia(k), Nr(k), Pi(k), Po(k), rend(k)] = modelss(Ua(k), Cf*Mass+Tc, false);
 end
 
 %% Graphs plots

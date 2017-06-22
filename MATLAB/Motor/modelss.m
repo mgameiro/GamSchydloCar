@@ -25,6 +25,10 @@ rend = Po/Pi;
 PJ = Ra*Ia*Ia;
 Pmec = B*w*w;
 
+%% Physical constraints
+
+rend = max(0,rend);
+
 if (PRINT == true)
 %% Print results
 
