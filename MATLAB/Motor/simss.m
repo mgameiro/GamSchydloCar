@@ -1,3 +1,4 @@
+close all; clear all;
 
 Ua = 0:0.1:5;
 Ia = zeros(1, length(Ua));
@@ -7,7 +8,8 @@ Po = zeros(1, length(Ua));
 rend = zeros(1, length(Ua));
 %https://en.wikipedia.org/wiki/Rolling_resistance
 Cf = 0.0025;
-Mass = 0.05;
+Mass = 0.5;
+Tc = 0;
 
 for k = 1:length(Ua)
     [Ia(k), Nr(k), Pi(k), Po(k), rend(k)] = modelss(Ua(k), Cf*Mass, false);

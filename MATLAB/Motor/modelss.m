@@ -2,8 +2,8 @@ function [Ia, Nr, Pi, Po, rend] = modelss(Ua, Tc, PRINT)
 
 
 %% Calculate main motor's constants
-k = 1.43;
-B = 0.000273;
+k = 0.2602;
+B = 0.0025;
 Ra = 2.75;
 
 
