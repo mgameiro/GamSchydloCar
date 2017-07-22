@@ -8,8 +8,8 @@ Po = zeros(1, length(Ua));
 rend = zeros(1, length(Ua));
 %https://en.wikipedia.org/wiki/Rolling_resistance
 Cf = 0.0025;
-Mass = 0.5;
-Tc = 0.5*sin(5*pi/180);
+Mass = 0.45;
+Tc = Mass*sin(5*pi/180);
 
 for k = 1:length(Ua)
     [Ia(k), Nr(k), Pi(k), Po(k), rend(k)] = modelss(Ua(k), Cf*Mass+Tc, false);
@@ -23,7 +23,7 @@ title('Current');
 xlabel('Ua [V]');
 ylabel('Ia [mA]');
 subplot(2,1,2);
-plot(Ua, Nr);
+plot(Ua, max(0,Nr));
 title('Rotor angular speed');
 xlabel('Ua [V]');
 ylabel('Nr [rpm]');
