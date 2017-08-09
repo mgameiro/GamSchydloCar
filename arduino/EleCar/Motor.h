@@ -4,17 +4,26 @@
 #include "Arduino.h"
 
 // DC Motor constants
-#define Ra 7.5
-#define Kf 1.1234
-#define Kt 0.8827
+#define Ra 2.75
+//#define Kf 1.1234
+//#define Kt 0.8827
+#define Km 0.2602
+#define B 0.0025
 // Car physical constants
 #define M 0.5
 #define R 0.003
 
 class Motor{
+  //Steady-state point
+  double Ua = 0;
+  double Tc = 0;
+  
 
   public:
     Motor();
+    void setVoltage(double Ua);
+    void setLoadTorque(double Tc);
+    double calcCurrent();
     ~Motor();
     
   private:

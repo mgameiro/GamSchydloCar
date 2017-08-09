@@ -6,8 +6,7 @@
 
 class Controller{
   //Motors included
-  Motor *motor1;
-  Motor *motor2;
+  Motor *motor;
   //Battery 
   Battery *battery;
 
