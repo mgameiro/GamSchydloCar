@@ -2,12 +2,12 @@
 #define CONTROLLER_H_INCLUDED
 
 #include "Motor.h"
+#include "Sensor.h"
 #include "Battery.h"
 
 class Controller{
-  //Motors included
   Motor *motor;
-  //Battery 
+  Sensor *sensor;
   Battery *battery;
 
   public:
