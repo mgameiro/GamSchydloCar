@@ -17,7 +17,7 @@ Sensor::~Sensor(){
 }
 
 double Sensor::measureAnalogPin(int apin){
-  double apin;
+  double rpin;
   rpin = (5.0/1023.0)*analogRead(apin);
   return rpin;
 }

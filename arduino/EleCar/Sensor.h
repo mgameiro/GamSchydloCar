@@ -11,6 +11,8 @@
 //      Sensors used: voltage, current
 //---------------------------------------------------------------
 
+#include "Arduino.h"
+
 #define VOLTAGESENSORPIN 1
 #define CURRENTSENSORPIN 2
 
