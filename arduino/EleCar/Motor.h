@@ -12,6 +12,8 @@
 // Car physical constants
 #define M 0.5
 #define R 0.003
+// Motor Connections
+#define MOTORPIN 11
 
 class Motor{
   //Steady-state point
@@ -27,6 +29,7 @@ class Motor{
     ~Motor();
     
   private:
+    bool setBaseVoltage(double Ub);
     
 };
 
