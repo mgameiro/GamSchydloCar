@@ -5,13 +5,21 @@
 #include "Sensor.h"
 #include "Battery.h"
 
+// Types of controllers
+typedef enum controllerType{
+  Linear, PID, NeuralNetwork
+};
+
 class Controller{
+  // Type of controller
+  controllerType type;
+  // Variables of controller
   Motor *motor;
   Sensor *sensor;
   Battery *battery;
 
   public:
-    Controller();
+    Controller(controllerType type);
     ~Controller();
   
 };

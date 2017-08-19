@@ -1,6 +1,8 @@
 #include "Controller.h"
 
-Controller::Controller(){
+Controller::Controller(controllerType type){
+  // Defining type of controller
+  this->type = type;
   //Motor Allocation
   this->motor = new Motor();
   //Sensor Allocation

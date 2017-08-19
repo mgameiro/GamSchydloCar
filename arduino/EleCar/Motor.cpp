@@ -1,7 +1,7 @@
 #include "Motor.h"
 
 Motor::Motor(){
-  
+
 }
 
 void Motor::setVoltage(double Ua){

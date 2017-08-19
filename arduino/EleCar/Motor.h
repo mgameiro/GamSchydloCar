@@ -14,6 +14,8 @@
 #define R 0.003
 // Motor Connections
 #define MOTORPIN 11
+#define VCC 9.0
+
 
 class Motor{
   //Steady-state point

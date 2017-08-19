@@ -6,7 +6,7 @@ Controller *controller;
 void setup() {
   Serial.begin(9600);
   // put your setup code here, to run once:
-  controller = new Controller();
+  controller = new Controller(Linear);
 }
 
 void loop() {
