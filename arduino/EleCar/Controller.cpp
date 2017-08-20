@@ -16,9 +16,9 @@ Controller::Controller(controllerType type){
   this->Vref = 0.0;
   // Current logger
   this->k = 0;
-  this->Iref = 0.0;
+  this->Pref = PREF;
   for (i=0; i < 10; i++){
-    this->Imotor[i] = 0.0;
+    this->Pmotor[i] = 0.0;
   }
 }
 
@@ -33,8 +33,11 @@ double Controller::updateLinearVoltage(){
   return Ub;
 }
 
-double Controller::updateCurrentPID(){
-
+double Controller::updatePowerPID(){
+  double Perror;
+  
+  // Get power from sensors
+  Perror = this->getPowerError();
   //Proportional control
   //up[k] = Kp
   
@@ -46,17 +49,6 @@ Controller::~Controller(){
   delete this->battery;
 }
 
-double Controller::getCurrentError(){
-  double Ierror, Isensor;
-
-  //Get real current from the sensor
-  Isensor = this->sensor->getMotorCurrent();
-  //Calculate the error from current
-  Ierror = this->Iref - Isensor;
-
-  return Ierror;
-}
-
 double Controller::getSpeedError(){
   double Verror, Vsensor;
 
@@ -66,5 +58,19 @@ double Controller::getSpeedError(){
   Verror = this->Vref - Vsensor;
 
   return Verror;
+}
+
+double Controller::getPowerError(){
+  double Perror, Psensor;
+  double Usensor, Isensor;
+
+  //Get power from sensors
+  Usensor = this->sensor->getMotorVoltage();
+  Isensor = this->sensor->getMotorCurrent();
+  Psensor = Usensor*Isensor;
+  //Calculate the error from current
+  Perror = this->Pref - Psensor;
+
+  return Perror;
 }
 

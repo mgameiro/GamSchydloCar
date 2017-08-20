@@ -16,6 +16,9 @@ typedef enum controllerType{
 #define Kp 1.0
 #define Ki 1.0
 #define Kd 1.0
+// Constants
+#define PREF 0.0
+
 
 class Controller{
   // Type of controller
@@ -28,21 +31,21 @@ class Controller{
   int k;
   // Reference point (Linear and PID)
   double Vref;
-  // Current PID and logger
-  double Iref;
-  double Imotor[10];
+  // Power PID and logger
+  double Pref;
+  double Pmotor[10];
 
   public:
     Controller(controllerType type);
     //Linear Controller
     double updateLinearVoltage();
-    //Current PID
-    double updateCurrentPID();
+    //Power PID
+    double updatePowerPID();
     ~Controller();
 
   private:
-    double getCurrentError();
     double getSpeedError();
+    double getPowerError();
   
 };
 
