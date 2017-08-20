@@ -24,16 +24,24 @@ class Controller{
   Motor *motor;
   Sensor *sensor;
   Battery *battery;
+  // Instant 
+  int k;
   // Reference point (Linear and PID)
   double Vref;
+  // Current PID and logger
+  double Iref;
+  double Imotor[10];
 
   public:
     Controller(controllerType type);
     //Linear Controller
     double updateLinearVoltage();
+    //Current PID
+    double updateCurrentPID();
     ~Controller();
 
   private:
+    double getCurrentError();
     double getSpeedError();
   
 };
