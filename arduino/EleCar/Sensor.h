@@ -13,6 +13,7 @@
 
 #include "Arduino.h"
 
+#define ARDUINOVOLTAGE 5.0
 #define VOLTAGESENSORPIN 1
 #define CURRENTSENSORPIN 2
 

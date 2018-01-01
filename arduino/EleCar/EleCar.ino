@@ -4,17 +4,14 @@
 Controller *controller;
 
 void setup() {
+  //Starting serial connection
   Serial.begin(9600);
-  // put your setup code here, to run once:
+  Serial.println("Starting system...");
+  //Starting main controller
   controller = new Controller(Linear);
+  
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  double d;
   
-  /*d = analogRead(0);
-  Serial.print(d);
-  Serial.print(" ");
-  Serial.println(d*5.0/1024.0);*/
 }

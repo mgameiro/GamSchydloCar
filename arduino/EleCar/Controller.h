@@ -37,10 +37,13 @@ class Controller{
 
   public:
     Controller(controllerType type);
+    void setReferenceSpeed(double Vref);
     //Linear Controller
     double updateLinearVoltage();
     //Power PID
     double updatePowerPID();
+    //Print data at computer
+    void printSensorsData();
     ~Controller();
 
   private:

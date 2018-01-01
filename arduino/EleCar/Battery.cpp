@@ -1,13 +1,11 @@
 #include "Battery.h"
 
 Battery::Battery(){
-  
+  this->state = charged;
 }
 
-double Battery::getBatteryState(){
-  double ub;
-  ub = this->getBatteryVoltage();
-  return ub/BATTERYVOLTAGE;
+batteryState Battery::getBatteryState(){
+  
 }
 
 bool Battery::isBatteryCharged(){

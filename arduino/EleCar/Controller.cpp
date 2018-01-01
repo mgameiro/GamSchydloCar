@@ -5,7 +5,6 @@ Controller::Controller(controllerType type){
   
   // Defining type of controller
   this->type = type;
-  
   // Motor Allocation
   this->motor = new Motor();
   //Sensor Allocation
@@ -20,6 +19,10 @@ Controller::Controller(controllerType type){
   for (i=0; i < 10; i++){
     this->Pmotor[i] = 0.0;
   }
+}
+
+void Controller::setReferenceSpeed(double Vref){
+  this->Vref = Vref;
 }
 
 double Controller::updateLinearVoltage(){
@@ -41,6 +44,18 @@ double Controller::updatePowerPID(){
   //Proportional control
   //up[k] = Kp
   
+}
+
+void printSensorsData(){
+  double u, i;
+  
+  u = this->sensor->getMotorVoltage();
+  //Serial.print("Voltage: ");
+  Serial.print(u);
+  i = this->sensor->getMotorCurrent();
+  //Serial.print("Current: ");
+  Serial.print(" ");
+  Serial.println(i);
 }
 
 Controller::~Controller(){

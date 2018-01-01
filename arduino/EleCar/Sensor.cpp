@@ -5,7 +5,7 @@ Sensor::Sensor(){
 }
 
 double Sensor::getMotorVoltage(){
-  return this->measureAnalogPin(VOLTAGESENSORPIN);
+  return this->measureAnalogPin(VOLTAGESENSORPIN)*5.0;
 }
 
 double Sensor::getMotorCurrent(){
@@ -18,7 +18,7 @@ Sensor::~Sensor(){
 
 double Sensor::measureAnalogPin(int apin){
   double rpin;
-  rpin = (5.0/1023.0)*analogRead(apin);
+  rpin = (ARDUINOVOLTAGE/1023.0)*analogRead(apin);
   return rpin;
 }
 
