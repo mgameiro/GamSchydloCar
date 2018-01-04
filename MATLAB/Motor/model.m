@@ -1,7 +1,7 @@
 
 %% Open file and read data
 addpath('tests');
-[U,I] = textread('test1.txt','%f %f');
+[U,I] = textread('test2.txt','%f %f');
 
 %% Make calculations
 P = U.*I;
