@@ -27,7 +27,7 @@ class Controller{
   Motor *motor;
   Sensor *sensor;
   Battery *battery;
-  // Instant 
+  // Actaul instant 
   int k;
   // Reference point (Linear and PID)
   double Vref;
@@ -44,6 +44,8 @@ class Controller{
     double updatePowerPID();
     //Print data at computer
     void printSensorsData();
+    //
+    void scanCycleController();
     ~Controller();
 
   private:

@@ -4,6 +4,10 @@ Sensor::Sensor(){
   
 }
 
+double Sensor::getBaseVoltage(){
+  return this->measureAnalogPin(BASESENSORPIN)*5.0;
+}
+
 double Sensor::getMotorVoltage(){
   return this->measureAnalogPin(VOLTAGESENSORPIN)*5.0;
 }

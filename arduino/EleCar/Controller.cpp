@@ -46,16 +46,31 @@ double Controller::updatePowerPID(){
   
 }
 
-void printSensorsData(){
-  double u, i;
-  
-  u = this->sensor->getMotorVoltage();
-  //Serial.print("Voltage: ");
-  Serial.print(u);
-  i = this->sensor->getMotorCurrent();
-  //Serial.print("Current: ");
+void Controller::printSensorsData(){
+  double Ub, U, I;
+
+  //Get sensors' data
+  Ub = this->sensor->getBaseVoltage();
+  U = this->sensor->getMotorVoltage();
+  I = this->sensor->getMotorCurrent();
+  //Print data at serial monitor
+  Serial.print("Ub: ");
+  Serial.print(Ub);
+  Serial.print("V Voltage: ");
+  Serial.print(U);
+  Serial.print("V Current: ");
   Serial.print(" ");
-  Serial.println(i);
+  Serial.print(I*1000.0);
+  Serial.println("mA");
+}
+
+void Controller::scanCycleController(){
+  //Observer action
+  
+  //Controller action
+  if (this->k%10 == 0){
+    
+  }  
 }
 
 Controller::~Controller(){

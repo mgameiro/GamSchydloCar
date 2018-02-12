@@ -15,6 +15,9 @@
 // Motor Connections
 #define MOTORPIN 11
 #define VCC 9.0
+// Arduino Constants
+#define VMIN 0.0
+#define VMAX 5.0
 
 
 class Motor{
@@ -29,9 +32,11 @@ class Motor{
     void setLoadTorque(double Tc);
     double calcCurrent();
     ~Motor();
+
+    bool setBaseVoltage(double Ub);
     
   private:
-    bool setBaseVoltage(double Ub);
+    //bool setBaseVoltage(double Ub);
     
 };
 
