@@ -2,6 +2,7 @@
 #define MOTOR_H_INCLUDED
 
 #include "Arduino.h"
+#include "Matrix.h"
 
 // DC Motor constants
 #define Ra 2.75
