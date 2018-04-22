@@ -1,12 +1,14 @@
 #include "Arduino.h"
 #include "Timer1.h"
 #include "Controller.h"
+#include "Matrix.h"
 
 #include "Motor.h"
 
 Motor *motor;
 Controller *controller;
 unsigned long ms, ams;
+Matrix *M;
 
 void setup() {
   //Interrupts initialization
@@ -22,6 +24,8 @@ void setup() {
   motor = new Motor();
   motor->setBaseVoltage(5.0);
 
+  M = new Matrix(2,2);
+  M->testPerform();
   
 }
 
@@ -32,5 +36,5 @@ ISR(TIMER1_COMPA_vect){
 }
 
 void loop() {
-  
+
 }

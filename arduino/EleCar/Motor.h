@@ -11,8 +11,8 @@
 #define Km 0.2602
 #define B 0.0025
 // Car physical constants
-#define M 0.5
-#define R 0.003
+#define Mass 0.5
+#define Radius 0.003
 // Motor Connections
 #define MOTORPIN 11
 #define VCC 9.0
